@@ -9,17 +9,17 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function playerLose() {
-    alert("You chose " + playerSelection + ", but the computer chose " + computerSelection + ". You lose.");
     computerScore = computerScore + 1;
+    alert("You chose " + playerSelection + ", but the computer chose " + computerSelection + ". You lose. \n(Player: " + playerScore + " | Computer: " + computerScore + ")");
 }
 
 function playerDraw() {
-    alert("You chose " + playerSelection + ", and the computer chose " + computerSelection + ". It's a draw.");
+    alert("You chose " + playerSelection + ", and the computer chose " + computerSelection + ". It's a draw. \n(Player: " + playerScore + " | Computer: " + computerScore + ")");
 }
 
 function playerWin() {
-    alert("You chose " + playerSelection + ", and the computer chose " + computerSelection + ". You win.");
     playerScore = playerScore + 1;
+    alert("You chose " + playerSelection + ", and the computer chose " + computerSelection + ". You win. \n(Player: " + playerScore + " | Computer: " + computerScore + ")");
 }
 
 function computerPlay() {
@@ -35,7 +35,7 @@ function computerPlay() {
 
 function humanPlay() {
     while(true) {
-        playerSelection = prompt().toLowerCase();
+        playerSelection = prompt("Choose rock, paper, or scissors.").toLowerCase();
         if (playerSelection === "rock" || playerSelection === "paper" || playerSelection == "scissors") {
             break;
         } else {
@@ -45,12 +45,18 @@ function humanPlay() {
     return playerSelection;
 }
 
+function game() {
+    let i;
+    for (i = 0; i < 5; i++) {
+        let computerSelection;
+        let playerSelection;
+        computerSelection = computerPlay();
+        playerSelection = humanPlay();
+        playRound(playerSelection, computerSelection);
+    }
+}
 
 let computerScore = 0;
 let playerScore = 0;
-let computerSelection;
-let playerSelection;
 
-computerSelection = computerPlay();
-playerSelection = humanPlay();
-playRound(playerSelection, computerSelection);
+game();
