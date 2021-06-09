@@ -23,10 +23,10 @@ function playerWin() {
 }
 
 function computerPlay() {
-    computerSelection = Math.floor(Math.random()*3) + 1;
-    if (computerSelection === 1) {
+    computerInt = Math.floor(Math.random()*3) + 1;
+    if (computerInt === 1) {
         return "rock";
-    } else if (computerSelection === 2) {
+    } else if (computerInt === 2) {
         return "paper";
     } else {
         return "scissors";
@@ -48,14 +48,14 @@ function humanPlay() {
 function game() {
     let i;
     for (i = 0; i < 5; i++) {
-        let computerSelection;
-        let playerSelection;
         computerSelection = computerPlay();
         playerSelection = humanPlay();
         playRound(playerSelection, computerSelection);
     }
-}
+} 
 
+let computerSelection;
+let playerSelection;
 let computerScore = 0;
 let playerScore = 0;
 
