@@ -3,7 +3,7 @@ A JavaScript project created as part of the Odin Project.
 
 ## What I've learnt
 <ul>
-  <li>1</li>
-  <li>2</li>
-  <li>3</li>
+  <li>Dealing with function variable scopes</li>
+  <li>Understanding and using conditionals</li>
+  <li>Bugfixing unexpected errors that occur</li>
 </ul>
