@@ -5,21 +5,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Rock Paper Scissors</title>
         <link rel="stylesheet" href="styles.css">
-        <!-- <script src="scripts.js" defer></script> -->
     </head>
     <body>
         <div class='wrapper'>
             <header>
-                <h1>rock paper scissors.</h1>
+                <h1>Rock<span style='color: #726cff'>Paper</span>Scissors.<h1>
             </header>
 
             <div class='playerContainer'>
                 <h2 class='playerBoxTitle'>player</h2>
 
                 <div class='playerButtonContainer'>
-                    <img src='images/rock.png' alt='Rock hand icon' class='button'>
-                    <img src='images/paper.png' alt='Paper hand icon' class='button'>
-                    <img src='images/scissors.png' alt='Scissors hand icon' class='button'>
+                    <img src='images/rock.png' alt='Rock hand icon' class='playerButton', id='playerRockButton'>
+                    <img src='images/paper.png' alt='Paper hand icon' class='playerButton' id='playerPaperButton'>
+                    <img src='images/scissors.png' alt='Scissors hand icon' class='playerButton' id='playerScissorsButton'>
                 </div>
 
                 <p class='playerBoxScore'>score: 0</p>
@@ -29,9 +28,9 @@
                 <h2 class='computerBoxTitle'>computer</h2>
 
                 <div class='computerButtonContainer'>
-                    <img src='images/rock.png' alt='Rock hand icon' class='button'>
-                    <img src='images/paper.png' alt='Paper hand icon' class='button'>
-                    <img src='images/scissors.png' alt='Scissors hand icon' class='button'>
+                    <img src='images/rock.png' alt='Rock hand icon' class='computerButton', id='computerRockButton'>
+                    <img src='images/paper.png' alt='Paper hand icon' class='computerButton', id='computerPaperButton'>
+                    <img src='images/scissors.png' alt='Scissors hand icon' class='computerButton', id='computerScissorsButton'>
                 </div>
 
                 <p class='computerBoxScore'>score: 0</p>
@@ -42,5 +41,8 @@
             </div>
         </div>
     </body>
+    
+    <!-- <script src="scripts.js" defer></script> -->
+    <script src='main.js' defer></script>
 </html>
 
