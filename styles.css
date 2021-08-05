@@ -33,7 +33,7 @@ header {
     text-align: center;
     padding: 1em 6em;
     background: #9da4c7;
-    color: #f1f0f3;
+    color: black;
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.678);
     border-radius: 1.5em;
 }
@@ -52,7 +52,7 @@ header {
     background: #726cff;
 }
 
-.playerButton:hover, .computerButton:hover {
+.playerButton:hover {
     background-color: #ffffbf;
     transition: background-color 0.25s;
 }

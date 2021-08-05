@@ -1,34 +1,37 @@
-function playRound(playerSelection, computerSelection) {
+// Basic game logic
+function playRound(playerSelection, computerChoice) {
     if (
-        playerSelection === "rock" && computerSelection === "paper" || 
-        playerSelection === "paper" && computerSelection == "scissors" ||
-        playerSelection === "scissors" && computerSelection === "rock"
+        playerSelection === "rock" && computerChoice === "paper" || 
+        playerSelection === "paper" && computerChoice == "scissors" ||
+        playerSelection === "scissors" && computerChoice === "rock"
         ) {
         playerLose();
-    } else if (playerSelection === computerSelection) {
+    } else if (playerSelection === computerChoice) {
         playerDraw();
     } else if (
-        playerSelection === "paper" && computerSelection === "rock" || 
-        playerSelection === "scissors" && computerSelection == "paper" ||
-        playerSelection === "rock" && computerSelection === "scissors"
+        playerSelection === "paper" && computerChoice === "rock" || 
+        playerSelection === "scissors" && computerChoice == "paper" ||
+        playerSelection === "rock" && computerChoice === "scissors"
         ) {
         playerWin();
     }
 }
 
-
+// Score counters
 function playerLose() {
     computerScore = computerScore + 1;
-    console.log('lose')
+    document.getElementById('resultText').innerHTML = 'You chose ' + playerChoice + ' but the computer chose ' + computerChoice + '. You lose.';
+    document.getElementById('computerBoxScore').innerHTML = 'score: ' + computerScore;
 }
 
 function playerDraw() {
-    console.log('draw')
+    document.getElementById('resultText').innerHTML = 'You both chose the same option. It\'s a draw!';
 }
 
 function playerWin() {
     playerScore = playerScore + 1;
-    console.log('win')
+    document.getElementById('resultText').innerHTML = 'The computer chose ' + computerChoice + ' but you chose ' + playerChoice + '. You win!';
+    document.getElementById('playerBoxScore').innerHTML = 'score: ' + playerScore;
 }
 
 
@@ -49,32 +52,52 @@ function computerPlay() {
     }
 }
 
-function playerPlay() {
+function runGame() {
+    computerChoice = computerPlay();
+    playRound(playerChoice, computerChoice);
+    if (playerScore === 5) {
+        alert('You were first to five. You won!')
+    } else if (computerScore === 5) {
+        alert('The computer was first to five. You lost.')
+    }
+}
+
+function awaitUserClick() {
     const playerButtons = document.querySelectorAll('.playerButton');
     playerButtons.forEach((playerButton) => {
         playerButton.addEventListener('click', () => {
+
+            // Reset computer colours
+            computerRockButton.style.cssText = 'background: #726cff'
+            computerPaperButton.style.cssText = 'background: #726cff'
+            computerScissorsButton.style.cssText = 'background: #726cff'
+
+            // Determine player choice
             switch (playerButton.id) {
-                case 'playerRockButton' :
+                case 'playerRockButton':
                     playerChoice = 'rock';
+                    break;
                 case 'playerPaperButton':
                     playerChoice = 'paper';
+                    break;
                 case 'playerScissorsButton':
                     playerChoice = 'scissors';
+                    break;
+                default:
+                    console.log('invalid');
+                    break;
             };
-            console.log(playerChoice);
+
+            // Run game logic after selection is made
+            runGame();
+            
         });     
     });
 }
 
-function game() {
-    computerSelection = computerPlay();
-    playerPlay();
-    playRound(playerChoice, computerSelection);
-}
-
-let computerSelection;
+let computerChoice;
 let playerChoice;
 let computerScore = 0;
 let playerScore = 0;
 
-game();
+awaitUserClick();
